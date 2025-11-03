@@ -1,0 +1,68 @@
+<div>
+  <div class="main" (click)="printForm()" *ngIf="!fetchedUsername">
+        <h1>LOGIN</h1>
+        <h3>Enter your login credentials</h3>
+
+        <form action="">
+            <label for="first">
+                Username:
+            </label>
+            <input type="text" id="first" name="first" [(ngModel)] = "username"
+                placeholder="Enter your Username" required>
+
+            <label for="password">
+                Password:
+            </label>
+            <input type="password" id="password" name="password" [(ngModel)] = "password"
+                placeholder="Enter your Password" required>
+
+            <div class="wrap">
+                <button type="submit" (click)="loginF()">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <div class="main" *ngIf="!fetchedUsername">
+        <h1>REGISTER</h1>
+        <h3>Enter your login credentials</h3>
+
+        <form action="">
+            <label for="first">
+                Username:
+            </label>
+            <input type="text" id="first" name="first" [(ngModel)] = "username"
+                placeholder="Enter your Username" required>
+
+            <label for="email">
+                Email:
+            </label>
+            <input type="text" id="email" name="email" [(ngModel)] = "email"
+                placeholder="Enter your Email" required>
+
+
+            <label for="password">
+                Password:
+            </label>
+            <input type="password" id="password" name="password" [(ngModel)] = "password"
+                placeholder="Enter your Password" required>
+
+            <div class="wrap">
+                <button type="submit" (click) = "registerF()">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+    <button *ngIf = "fetchedUsername" type="submit" (click)="logout()">LOGOUT</button>
+
+
+    <div>
+      <h1 *ngIf = "fetchedUsername">Username:{{fetchedUsername}}</h1>
+
+        <h1 *ngIf = "!fetchedUsername" >Not logged in</h1>
+    </div>
+</div>
