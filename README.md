@@ -37,3 +37,44 @@ All 3 components need to be running for everything to work:
 
 ```
 
+2. Start-up Spring-Boot using Maven:
+
+```bash
+
+    # Navigate to Spring-Boot directory
+    cd ../spring-boot
+    
+    # Run spring-boot
+    ./mvnw spring-boot:run
+    
+    # Unfortunately, Spring-Boot takes over your shell
+    # You could run nohup ./mvnw spring-boot:run but you will still get all the logs when they come
+    
+    # Use tmux like a big man or just make another terminal instance/tab
+
+
+```
+
+3. Start-up Angular using npm:
+
+```bash
+
+    # Navigate to Angular directory
+    cd ../angular
+    
+    # Run Angular 
+    npm run ng serve #or 'ng serve' if that works(pls dont copy the comment as well) 
+    
+    #Same as spring-boot, angular takes over the shell    
+
+
+```
+
+4. Go to [localhost:4200](http://localhost:4200)
+
+Predefined routes are /login /register /user
+
+
+
+
+
