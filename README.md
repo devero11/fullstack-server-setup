@@ -72,7 +72,7 @@ All 3 components need to be running for everything to work:
 
 4. Go to [localhost:4200](http://localhost:4200)
 
-Predefined routes are /login /register /user
+Predefined routes are `/login` `/register` `/user`
 
 
 
