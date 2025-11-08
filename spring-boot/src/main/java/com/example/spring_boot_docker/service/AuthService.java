@@ -53,6 +53,7 @@ public class AuthService {
         // Check if email is in valid format
         if (!email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
             return "EmailFormatError";
+        }
 
         // Check if username or email already exists
         if (userRepository.findByUsername(username) != null ||
