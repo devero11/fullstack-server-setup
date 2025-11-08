@@ -45,6 +45,11 @@ public class AuthService {
             return "UsernameLengthError";
         }
 
+        // Check if username only contains alphanumeric characters and underscores
+        if (!username.matches("^[a-zA-Z0-9_]+$")) {
+            return "UsernameFormatError";
+        }
+
         // Check if username or email already exists
         if (userRepository.findByUsername(username) != null ||
             userRepository.findByEmail(email) != null) {
