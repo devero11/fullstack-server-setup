@@ -31,13 +31,32 @@ public class AuthService {
         user.setUsername(username);
         user.setEmail(email);
 
+        // Check if raw password meets basic criteria (8 characters, lower and upper case letters, digits, special symbols)
+        if (rawPassword.length() < 8 ||
+            !rawPassword.matches(".*[a-z].*") ||
+            !rawPassword.matches(".*[A-Z].*") ||
+            !rawPassword.matches(".*\\d.*") ||
+            !rawPassword.matches(".*[!@#$%^&*()].*")) {
+            return "PasswordComplexityError";
+        }
+
+        // Check if username is equal or longer than 4 characters
+        if (username.length() < 4) {
+            return "UsernameLengthError";
+        }
+
+        // Check if username or email already exists
+        if (userRepository.findByUsername(username) != null ||
+            userRepository.findByEmail(email) != null) {
+            return "UserExistsError";
+        }
+
         // Hash the password with bcrypt (automatically salted)
         String hashed = BCrypt.withDefaults().hashToString(12, rawPassword.toCharArray());
         user.setPassword(hashed);
         userRepository.save(user);
         
         return authenticate(username, rawPassword);
-        
     }
 
     public String authenticate(String username, String rawPassword) {

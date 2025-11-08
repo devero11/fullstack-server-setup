@@ -22,6 +22,9 @@ public class AuthController {
       if (token == null) {
         throw new RuntimeException("Invalid credentials");
       }
+      else if (token.equals("UserExistsError") || token.equals("PasswordComplexityError") || token.equals("UsernameLengthError")) {
+        throw new RuntimeException(token);
+      }
       return Collections.singletonMap("token", token);
     }
     
