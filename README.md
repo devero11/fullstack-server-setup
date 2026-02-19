@@ -1,5 +1,6 @@
 # Full-Stack Template 
 
+PS. readme is writen for my hackaton team that were very inexperienced, so it explains a lot of basic stuff in way to much detail
 
 ## Installation
 
